@@ -1,8 +1,8 @@
 import React from "react"
-import { store } from "../store"
+import { useSelector } from "react-redux"
 
 const CarList = () => {
-  const { cars } = store.getState().cars
+  const { cars } = useSelector((state) => state.cars)
   console.log(cars)
   const carsList = cars.map((car) => {
     return (

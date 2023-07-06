@@ -1,17 +1,24 @@
-import React, { useRef } from "react"
-import { useDispatch } from "react-redux"
-import { addCar } from "../store"
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { addCar, changeName, changeCost } from "../store"
 
 const CarForm = () => {
   const dispatch = useDispatch()
-  const carNameRef = useRef()
-  const carValueRef = useRef()
+  const { name, cost } = useSelector((state) => state.form)
+  const handleNameChange = (e) => {
+    dispatch(changeName(e.target.value))
+  }
+
+  const handleValueChange = (e) => {
+    dispatch(changeCost(e.target.value))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(
       addCar({
-        name: carNameRef.current.value,
-        cost: carValueRef.current.value,
+        name,
+        cost,
       }),
     )
   }
@@ -19,9 +26,21 @@ const CarForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="carName">Car Name</label>
-        <input ref={carNameRef} id="carName" name="carName" type="text" />
+        <input
+          onChange={handleNameChange}
+          value={name}
+          id="carName"
+          name="carName"
+          type="text"
+        />
         <label htmlFor="carValue">Car Value</label>
-        <input ref={carValueRef} id="carValue" name="carValue" type="number" />
+        <input
+          onChange={handleValueChange}
+          value={cost}
+          id="carValue"
+          name="carValue"
+          type="number"
+        />
         <button type="submit">Submit</button>
       </div>
     </form>
