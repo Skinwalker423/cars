@@ -22,7 +22,7 @@ const CarList = () => {
           onClick={() => handleCarDelete(car.id)}
           className="button is-danger"
         >
-          X
+          Delete
         </button>
       </div>
     )
