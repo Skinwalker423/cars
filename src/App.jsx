@@ -12,7 +12,6 @@ function App() {
       <CarForm />
       <CarSearch />
       <CarList />
-      <CarValue />
     </div>
   )
 }

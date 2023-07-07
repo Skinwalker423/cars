@@ -1,7 +1,7 @@
 import React from "react"
 
-const CarValue = () => {
-  return <div>Total Value: $22500</div>
+const CarValue = ({ value = 0 }) => {
+  return <div>Total Value: ${value}</div>
 }
 
 export default CarValue
