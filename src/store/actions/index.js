@@ -1,3 +1,4 @@
 import { createAction } from "@reduxjs/toolkit"
+import { addCar } from "../slices/carSlice"
 
-export const resetForm = createAction("cars/deleteCar")
+export const resetCarForm = createAction(addCar)
