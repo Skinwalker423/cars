@@ -5,7 +5,16 @@ import { deleteCar } from "../store"
 
 const CarList = () => {
   const dispatch = useDispatch()
-  const { list } = useSelector((state) => state.cars)
+  const list = useSelector((state) => {
+    if (!state.cars.searchTerm) return state.cars.list
+
+    return state.cars.list.filter((car) => {
+      return (
+        car.name.toLowerCase().includes(state.cars.searchTerm) ||
+        car.cost.toString().includes(state.cars.searchTerm.toString())
+      )
+    })
+  })
   console.log(list)
 
   const handleCarDelete = (carId) => {
