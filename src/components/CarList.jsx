@@ -8,8 +8,8 @@ const CarList = () => {
   const { list } = useSelector((state) => state.cars)
   console.log(list)
 
-  const handleCarDelete = (id) => {
-    dispatch(deleteCar(id))
+  const handleCarDelete = (carId) => {
+    dispatch(deleteCar(carId))
   }
   const carsList = list.map((car) => {
     return (
@@ -27,7 +27,7 @@ const CarList = () => {
       </div>
     )
   })
-  return <div>{carsList}</div>
+  return <div className="car-list">{carsList}</div>
 }
 
 export default CarList

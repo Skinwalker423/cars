@@ -8,7 +8,7 @@ import { store } from "./store"
 function App() {
   console.log(store.getState())
   return (
-    <div className="App">
+    <div className="container is-fluid">
       <CarForm />
       <CarSearch />
       <CarList />

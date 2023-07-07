@@ -57,7 +57,9 @@ const CarForm = () => {
           </div>
         </div>
         <div className="field">
-          <button type="submit">Submit</button>
+          <button className="button is-link" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
